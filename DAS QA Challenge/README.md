@@ -1,11 +1,11 @@
 # Random Date Generator - QA Testing Project
 
 ## 📌 Overview
-This project contains manual QA testing artifacts for the Random Date Generator tool:
+This project contains manual QA testing artifacts for the Random Date Generator tool.
 
 https://codebeautify.org/generate-random-date
 
-The goal of this QA effort is to evaluate:
+The purpose of this QA effort is to validate:
 - Functional correctness
 - Input validation
 - Boundary conditions
@@ -17,24 +17,24 @@ The goal of this QA effort is to evaluate:
 
 ## 🧪 Testing Scope
 
-### Included
-- Number of dates generation logic
-- Date format selection
-- Custom date format handling
-- Start / End date validation
+### In Scope
+- Random date generation logic
+- Output display validation
 - Copy & Download functionality
-- Edge cases & invalid inputs
+- Number of dates input validation
+- Date format selection
+- Custom format handling
+- Start / End date logic
 
-### Excluded
-- Backend/API implementation
-- Infrastructure testing
-- Third-party library internals
+### Out of Scope
+- Backend implementation
+- External APIs / third-party internal logic
 - Authentication / user management
+- Infrastructure / performance testing (load testing)
 
 ---
 
 ## 🧠 Testing Approach
-
 - Functional Testing
 - Boundary Value Analysis
 - Negative Testing
@@ -44,46 +44,51 @@ The goal of this QA effort is to evaluate:
 
 ---
 
-## 🚨 Key Issues Found
+## 🚨 Key Defects Summary
 
 ### 🔴 Critical
-- Application crash (Out of Memory) when large input (9999) is used
+- Application crashes (Out of Memory) when large input (e.g., 9999) is used
 
 ### 🔴 High Severity
-- Decimal input accepted with implicit rounding
+- Decimal input accepted and automatically rounded without user notification
 - Inconsistent invalid date validation behavior
-- Start date greater than end date still generates results
-- Invalid date formats accepted without proper validation
+- Start Date greater than End Date still generates results
+- Invalid calendar dates partially normalized without consistency
 
 ### 🟡 Medium Severity
-- Duplicate format mapping issue in output formats
-- Custom format case sensitivity issue
-- Download allows unlimited duplicate downloads
+- Duplicate format mapping for different output options
+- Custom format case sensitivity inconsistency
+- Repeated download allowed without restriction
 
 ### 🟢 Low Severity
-- Ambiguous format labeling ("Year Month Date")
+- Ambiguous format label ("Year Month Date")
 
 ---
 
-## 📸 Evidence / Screenshots
+## 🐞 Bug Reports
+All detailed defects are documented in:
+👉 BugReport.md
 
-All bug evidence screenshots are located here:
+Each bug includes:
+- Steps to reproduce
+- Actual vs expected results
+- Severity & priority
+- Evidence references
+
+---
+
+## 📸 Evidence
+All screenshots are stored under:
 ManualTesting/Screenshots/
-Each bug in BugReport.md includes direct image references.
+
+Each bug is linked to its corresponding evidence in BugReport.md.
 
 ---
 
-## 🐞 Bug Report
-All detailed issues are documented in:
-👉 `BugReport.md`
+## 📊 Summary
+The application demonstrates core functionality but shows several quality issues:
 
----
-
-## 📊 Overall Assessment
-
-The application demonstrates basic functionality but has several quality issues:
-
-- Weak input validation layer
+- Weak input validation
 - Inconsistent date parsing logic
 - Missing constraints for extreme inputs
 - UX clarity issues in format naming
@@ -91,18 +96,17 @@ The application demonstrates basic functionality but has several quality issues:
 ---
 
 ## 💡 Recommendations
-
-- Implement strict input validation (numeric + date fields)
-- Define consistent date parsing rules
-- Add maximum limit for number generation
-- Handle invalid calendar dates explicitly
-- Improve format naming consistency and documentation
+- Implement strict input validation rules
+- Define consistent date parsing behavior
+- Add maximum input limits
+- Standardize format naming conventions
+- Improve error messaging clarity
 
 ---
 
 ## 👩‍💻 Author Notes
-This QA exercise was completed using:
+Testing was performed using:
 - Manual exploratory testing
-- Edge case analysis
+- Boundary analysis
+- Negative testing techniques
 - Functional verification
-- Input validation testing
