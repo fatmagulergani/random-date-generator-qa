@@ -1,27 +1,26 @@
 # Test Plan - Random Date Generator
 
 ## 1. Objective
-To verify functionality, reliability, usability, and validation of the Random Date Generator.
+To validate functional correctness, input validation, UI behavior, and system stability of the Random Date Generator application.
 
 ---
 
 ## 2. Scope
 
 ### In Scope
-- Generate Random Date functionality
-- Output display
+- Random date generation functionality
+- Output rendering
 - Copy / Download features
-- Number of dates input
+- Number of dates input validation
 - Date format selection
 - Custom format handling
 - Start / End date logic
 
 ### Out of Scope
 - Backend implementation
-- External APIs
-- Authentication
-- Ads / navigation
-- Performance testing at scale
+- External API behavior
+- Authentication / authorization
+- Load / performance testing
 
 ---
 
@@ -30,8 +29,9 @@ To verify functionality, reliability, usability, and validation of the Random Da
 - Boundary Value Analysis
 - Negative Testing
 - Exploratory Testing
-- UI Testing
+- UI Validation
 - Usability Testing
+- Data Integrity Testing
 
 ---
 
@@ -43,40 +43,42 @@ To verify functionality, reliability, usability, and validation of the Random Da
 | URL | https://codebeautify.org/generate-random-date |
 | Browser | Google Chrome |
 | OS | Windows 10 |
-| Testing Type | Manual |
+| Testing Type | Manual Testing |
 
 ---
 
 ## 5. Assumptions
-- Only valid dates should be generated
-- Inputs must be validated
-- Output format must be respected
+- Input values should be validated before processing
+- Only valid calendar dates should be accepted
+- Output format should strictly follow selected configuration
 - Invalid inputs should be handled gracefully
 
 ---
 
 ## 6. Entry Criteria
-- Page is accessible
-- Default UI loads correctly
+- Application is accessible
+- UI loads successfully
+- Default configuration is displayed
 
 ---
 
 ## 7. Exit Criteria
-- All test cases executed
-- All defects documented
-- Test execution completed
+- All planned test cases executed
+- All critical and high severity defects documented
+- Test execution completed successfully
 
 ---
 
 ## 8. Risks
-- Weak input validation
-- Unexpected browser behavior under extreme input
-- Inconsistent date parsing behavior
+- Weak input validation may cause system instability
+- Extreme input values may cause performance degradation
+- Inconsistent date parsing logic may lead to incorrect outputs
+- UI inconsistencies may affect usability
 
 ---
 
 ## 9. Deliverables
-- Test Plan
-- Test Cases
-- Bug Report
-- Screenshots
+- Test Plan document
+- Test Cases document
+- Bug Report document
+- Evidence (screenshots)
