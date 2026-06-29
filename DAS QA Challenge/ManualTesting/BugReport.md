@@ -23,7 +23,8 @@ System crash / potential denial of service behavior
 
 ### Evidence:
 ![BUG-001-1](./Screenshots/BUG-001-crash(1).png)
-- ![BUG-001-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-001-crash(2).png)
+![BUG-001-2](./Screenshots/BUG-001-crash(2).png)
+
 ---
 
 ## BUG-002 - Decimal input accepted without clear validation
@@ -43,8 +44,8 @@ Decimal values are accepted and rounded without user notification.
 - Decimal input should be rejected OR rounding behavior should be clearly communicated
 
 ### Evidence:
-- ![BUG-002-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-002-decimal(1).png)
-- ![BUG-002-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-002-decimal(2).png)
+- ![BUG-002-1](./Screenshots/BUG-002-decimal(1).png)
+- ![BUG-002-2](./Screenshots/BUG-002-decimal(2).png)
 
 ---
 
@@ -62,9 +63,9 @@ Some invalid calendar dates are rejected, others are normalized without warning.
 - Consistent validation rules for all invalid dates
 
 ### Evidence:
-- ![BUG-003-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(1).png)
-- ![BUG-003-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(2).png)
-- ![BUG-003-3](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(3).png)
+- ![BUG-003-1](./Screenshots/BUG-003-date-validation(1).png)
+- ![BUG-003-2](./Screenshots/BUG-003-date-validation(2).png)
+- ![BUG-003-3](./Screenshots/BUG-003-date-validation(3).png)
 - 
 ---
 
@@ -83,7 +84,7 @@ Dates are still generated
 Validation error should block generation
 
 ### Evidence:
-- ![BUG-004-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-004-start-greater-than-end.png)
+- ![BUG-004-1](./Screenshots/BUG-004-start-greater-than-end.png)
 
 ---
 
@@ -105,7 +106,7 @@ Severity: Medium | Priority: High
 Different format options produce identical output.
 
 ### Evidence:
-- ![BUG-006-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-006-date-format.png)
+- ![BUG-006-1](./Screenshots/BUG-006-date-format.png)
 
 ---
 
