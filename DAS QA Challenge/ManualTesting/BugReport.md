@@ -32,6 +32,10 @@ When a very large number (e.g. 9999) is entered, the application becomes unrespo
 - Poor performance handling  
 - Potential denial-of-service scenario under extreme input  
 
+## Evidence
+![BUG-001-1](./Screenshots/BUG-001-crash(1).png)
+![BUG-001-2](./Screenshots/BUG-001-crash(2).png)
+
 ---
 
 # BUG-002 - Decimal input is accepted and rounded up without user notification
@@ -61,6 +65,10 @@ Decimal values are accepted and automatically rounded up without user notificati
 - User confusion  
 - Inconsistent numeric validation behavior  
 
+## Evidence
+![BUG-002-1](./Screenshots/BUG-002-decimal(1).png)
+![BUG-002-2](./Screenshots/BUG-002-decimal(2).png)
+
 ---
 
 # BUG-003 - Inconsistent validation of invalid calendar dates
@@ -89,6 +97,11 @@ Invalid calendar dates are handled inconsistently. Some invalid inputs are rejec
 - Inconsistent parsing behavior  
 - Hidden data transformation  
 
+## Evidence
+![BUG-003-1](./Screenshots/BUG-003-date-validation(1).png)
+![BUG-003-2](./Screenshots/BUG-003-date-validation(2).png)
+![BUG-003-3](./Screenshots/BUG-003-date-validation(3).png)
+
 ---
 
 # BUG-004 - Start Date greater than End Date still generates results
@@ -113,7 +126,10 @@ System allows Start Date to be greater than End Date and still generates results
 
 ## Impact
 - Logical inconsistency  
-- Broken range validation  
+- Broken range validation
+
+## Evidence
+![BUG-004-1](./Screenshots/BUG-004-start-grater-than-end.png)
 
 ---
 
@@ -176,6 +192,10 @@ Two different format options produce identical output, indicating incorrect form
 - Broken format configuration logic  
 - User confusion  
 - Incorrect mapping in format engine  
+
+## Evidence
+
+![BUG-006-1](./Screenshots/BUG-006-date-format.png)
 
 ---
 
