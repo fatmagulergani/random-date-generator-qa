@@ -33,8 +33,8 @@ When a very large number (e.g. 9999) is entered, the application becomes unrespo
 - Potential denial-of-service scenario under extreme input  
 
 ## Evidence
-![BUG-001-1](./Screenshots/BUG-001-crash(1).png)
-![BUG-001-2](./Screenshots/BUG-001-crash(2).png)
+![BUG-001-1](ManualTesting/Screenshots/BUG-001-crash(1).png)
+![BUG-001-2](ManualTesting/Screenshots/BUG-001-crash(2).png)
 
 ---
 
@@ -66,8 +66,8 @@ Decimal values are accepted and automatically rounded up without user notificati
 - Inconsistent numeric validation behavior  
 
 ## Evidence
-![BUG-002-1](./Screenshots/BUG-002-decimal(1).png)
-![BUG-002-2](./Screenshots/BUG-002-decimal(2).png)
+![BUG-002-1](ManualTesting/Screenshots/BUG-002-decimal(1).png)
+![BUG-002-2](ManualTesting/Screenshots/BUG-002-decimal(2).png)
 
 ---
 
@@ -98,9 +98,9 @@ Invalid calendar dates are handled inconsistently. Some invalid inputs are rejec
 - Hidden data transformation  
 
 ## Evidence
-![BUG-003-1](./Screenshots/BUG-003-date-validation(1).png)
-![BUG-003-2](./Screenshots/BUG-003-date-validation(2).png)
-![BUG-003-3](./Screenshots/BUG-003-date-validation(3).png)
+![BUG-003-1](ManualTesting/Screenshots/BUG-003-date-validation(1).png)
+![BUG-003-2](ManualTesting/Screenshots/BUG-003-date-validation(2).png)
+![BUG-003-3](ManualTesting/Screenshots/BUG-003-date-validation(3).png)
 
 ---
 
@@ -129,7 +129,7 @@ System allows Start Date to be greater than End Date and still generates results
 - Broken range validation
 
 ## Evidence
-![BUG-004-1](./Screenshots/BUG-004-start-grater-than-end.png)
+![BUG-004-1](ManualTesting/Screenshots/BUG-004-start-grater-than-end.png)
 
 ---
 
@@ -195,7 +195,7 @@ Two different format options produce identical output, indicating incorrect form
 
 ## Evidence
 
-![BUG-006-1](./Screenshots/BUG-006-date-format.png)
+![BUG-006-1](ManualTesting/Screenshots/BUG-006-date-format.png)
 
 ---
 
