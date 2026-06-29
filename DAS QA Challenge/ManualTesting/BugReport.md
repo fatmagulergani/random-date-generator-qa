@@ -1,246 +1,127 @@
 # Bug Report - Random Date Generator
 
-## Overview
-This document contains confirmed issues found during manual testing of the Random Date Generator tool.
+## BUG-001 - Application crashes with Out of Memory error (large input)
+Severity: Critical | Priority: High
 
----
+### Description
+System crashes when very large input (e.g., 9999) is entered.
 
-# BUG-001 - Application crashes with Out of Memory error when large input is used
-
-**Severity:** Critical  
-**Priority:** High  
-**Component:** Number of Dates Input  
-
-## Description
-When a very large number (e.g. 9999) is entered, the application becomes unresponsive and eventually crashes due to memory exhaustion.
-
-## Steps to Reproduce
-1. Open the Random Date Generator page  
-2. Enter `9999` in "How many dates to generate?" field  
-3. Click "Generate Random Date"
-
-## Actual Result
-- Browser becomes unresponsive  
-- "Page Unresponsive" warning appears  
-- "Aw, Snap! Out of Memory" crash occurs  
-
-## Expected Result
-- System should restrict maximum input value OR show validation error before processing  
-
-## Impact
-- Application crash  
-- Poor performance handling  
-- Potential denial-of-service scenario under extreme input  
-
-## Evidence
-![BUG-001-1](./Screenshots/BUG-001-crash(1).png)
-![BUG-001-2](./Screenshots/BUG-001-crash(2).png)
-
----
-
-# BUG-002 - Decimal input is accepted and rounded up without user notification
-
-**Severity:** High  
-**Priority:** High  
-**Component:** Number of Dates Input  
-
-## Description
-Decimal values are accepted and automatically rounded up without user notification.
-
-## Steps to Reproduce
-1. Enter `1.5`  
-2. Click Generate  
-3. Observe output count  
-
-## Actual Result
-- `1.5 → 2` dates generated  
-- `2.5 → 3` dates generated  
-- No validation or explanation provided  
-
-## Expected Result
-- Decimal values should be rejected OR rounding behavior should be explicitly communicated  
-
-## Impact
-- Non-transparent input handling  
-- User confusion  
-- Inconsistent numeric validation behavior  
-
-## Evidence
-![BUG-002-1](./Screenshots/BUG-002-decimal(1).png)
-![BUG-002-2](./Screenshots/BUG-002-decimal(2).png)
-
----
-
-# BUG-003 - Inconsistent validation of invalid calendar dates
-
-**Severity:** High  
-**Priority:** High  
-**Component:** Start Date / End Date Validation  
-
-## Description
-Invalid calendar dates are handled inconsistently. Some invalid inputs are rejected, while others are automatically normalized without user notification.
-
-## Test Data
-- `2020-12-32` → rejected  
-- `2020-04-31` → accepted and normalized  
-- `2020-02-30` → accepted and normalized  
-
-## Actual Result
-- Partial validation applied inconsistently  
-- Some invalid dates are converted to valid ones without warning  
-
-## Expected Result
-- All invalid calendar dates should be consistently rejected OR normalization rules should be explicitly defined  
-
-## Impact
-- Data integrity issues  
-- Inconsistent parsing behavior  
-- Hidden data transformation  
-
-## Evidence
-![BUG-003-1](./Screenshots/BUG-003-date-validation(1).png)
-![BUG-003-2](./Screenshots/BUG-003-date-validation(2).png)
-![BUG-003-3](./Screenshots/BUG-003-date-validation(3).png)
-
----
-
-# BUG-004 - Start Date greater than End Date still generates results
-
-**Severity:** High  
-**Priority:** High  
-**Component:** Date Range Validation  
-
-## Description
-System allows Start Date to be greater than End Date and still generates results.
-
-## Steps to Reproduce
-1. Set Start Date: `9020-01-01`  
-2. Set End Date: `2020-01-01`  
-3. Click Generate  
-
-## Actual Result
-- Random dates are generated despite invalid range  
-
-## Expected Result
-- Validation error should prevent generation  
-
-## Impact
-- Logical inconsistency  
-- Broken range validation
-
-## Evidence
-![BUG-004-1](./Screenshots/BUG-004-start-grater-than-end.png)
-
----
-
-# BUG-005 - Inconsistent handling of invalid date separators
-
-**Severity:** Medium  
-**Priority:** Low  
-**Component:** Date Input Validation  
-
-## Description
-During testing, inconsistent behavior was observed when using unsupported date separators such as `/` or `*`.
-
-This behavior was not consistently reproducible across all attempts, suggesting conditional validation behavior or input normalization differences.
-
-## Steps Attempted
-1. Enter `2222/02/29`
-2. Enter `2223*03*29`
+### Steps
+1. Open application
+2. Enter 9999
 3. Click Generate
 
-## Observed Behavior (intermittent)
-- In some cases, input appears to be accepted and processed  
-- In other attempts, behavior differs or is normalized/rejected  
+### Actual Result
+- Browser becomes unresponsive
+- "Out of Memory" crash occurs
 
-## Expected Result
-- System should consistently reject unsupported date formats OR clearly define supported formats  
+### Expected Result
+- Input should be restricted OR validated before processing
 
-## Impact
-- Potential inconsistency in input validation logic  
-- Confusing user experience  
-- Risk of unpredictable parsing behavior  
+### Impact
+System crash / potential denial of service behavior
 
-## Notes
-This issue could not be consistently reproduced and may require further investigation.
+### Evidence:
+- ![BUG-001-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-001-crash(1).png)
+- ![BUG-001-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-001-crash(2).png)
+---
+
+## BUG-002 - Decimal input accepted without clear validation
+Severity: High | Priority: High
+
+### Description
+Decimal values are accepted and rounded without user notification.
+
+### Steps
+- Enter 1.5 or 2.5
+- Generate output
+
+### Actual Result
+- Values are rounded automatically (1.5 → 2)
+
+### Expected Result
+- Decimal input should be rejected OR rounding behavior should be clearly communicated
+
+### Evidence:
+- ![BUG-002-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-002-decimal(1).png)
+- ![BUG-002-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-002-decimal(2).png)
 
 ---
 
-# BUG-006 - Duplicate format mapping for different output options
+## BUG-003 - Inconsistent invalid date handling
+Severity: High | Priority: High
 
-**Severity:** Medium  
-**Priority:** High  
-**Component:** Date Output Format  
+### Description
+Some invalid calendar dates are rejected, others are normalized without warning.
 
-## Description
-Two different format options produce identical output, indicating incorrect format mapping.
+### Examples
+- 2020-12-32 → rejected
+- 2020-04-31 → normalized
 
-## Steps to Reproduce
-1. Select "Year Month Date hh:mm:ss"  
-2. Generate dates  
-3. Select "Year Date Month hh:mm:ss"  
-4. Generate dates  
-5. Compare outputs  
+### Expected Result
+- Consistent validation rules for all invalid dates
 
-## Actual Result
-- Both formats produce identical output  
+### Evidence:
+- ![BUG-003-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(1).png)
+- ![BUG-003-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(2).png)
+- ![BUG-003-3](DAS QA Challenge/ManualTesting/Screenshots/BUG-003-date-validation(3).png)
+- 
+---
 
-## Expected Result
-- Each format option should produce distinct mapped output  
+## BUG-004 - Start Date greater than End Date allowed
+Severity: High | Priority: High
 
-## Impact
-- Broken format configuration logic  
-- User confusion  
-- Incorrect mapping in format engine  
+### Steps
+- Start: 9020-01-01
+- End: 2020-01-01
+- Generate
 
-## Evidence
+### Actual Result
+Dates are still generated
 
-![BUG-006-1](./Screenshots/BUG-006-date-format.png)
+### Expected Result
+Validation error should block generation
+
+### Evidence:
+- ![BUG-004-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-004-start-greater-than-end.png)
 
 ---
 
-# BUG-007 - Download button allows unlimited duplicate file downloads
+## BUG-005 - Inconsistent date separator handling (intermittent)
+Severity: Medium | Priority: Low
 
-**Severity:** Medium  
-**Priority:** Medium  
-**Component:** Download Feature  
+### Description
+Different behavior observed for unsupported separators (/ , *)
 
-## Description
-Users can repeatedly download identical files without restriction.
-
-## Steps to Reproduce
-1. Generate dates  
-2. Click Download multiple times  
-
-## Actual Result
-- Unlimited identical downloads occur  
-
-## Expected Result
-- System should prevent redundant downloads OR indicate unchanged content  
-
-## Impact
-- Redundant file creation  
-- Minor performance and storage inefficiency  
+### Expected Result
+Consistent rejection or normalization rules
 
 ---
 
-# BUG-008 - Ambiguous format label "Year Month Date"
+## BUG-006 - Duplicate format mapping issue
+Severity: Medium | Priority: High
 
-**Severity:** Low  
-**Priority:** Medium  
-**Component:** Date Output Format UI  
+### Description
+Different format options produce identical output.
 
-## Description
-The label "Year Month Date" is ambiguous and may confuse users.
+### Evidence:
+- ![BUG-006-1](DAS QA Challenge/ManualTesting/Screenshots/BUG-006-date-format.png)
 
-The term "Date" is unclear and likely intended to represent "Day".
+---
 
-## Actual Result
-- Label may cause interpretation confusion  
+## BUG-007 - Multiple download allowed without restriction
+Severity: Medium | Priority: Medium
 
-## Expected Result
-- Clear naming such as "Year Month Day"  
+### Description
+Same file can be downloaded repeatedly without control.
 
-## Impact
-- UX confusion  
-- Misinterpretation of format structure  
+---
+
+## BUG-008 - Ambiguous format label
+Severity: Low | Priority: Medium
+
+### Description
+Label "Year Month Date" is unclear; likely should be "Day".
+
+### Impact
+UX confusion
