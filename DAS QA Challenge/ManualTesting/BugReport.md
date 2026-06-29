@@ -22,7 +22,7 @@ System crashes when very large input (e.g., 9999) is entered.
 System crash / potential denial of service behavior
 
 ### Evidence:
-![BUG-001-1](./ManualTesting/Screenshots/BUG-001-crash(1).png)
+![BUG-001-1](./Screenshots/BUG-001-crash(1).png)
 - ![BUG-001-2](DAS QA Challenge/ManualTesting/Screenshots/BUG-001-crash(2).png)
 ---
 
