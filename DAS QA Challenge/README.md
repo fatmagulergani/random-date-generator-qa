@@ -65,8 +65,11 @@ The goal of this QA effort is to evaluate:
 
 ---
 
-## 📸 Evidence
-Screenshots for all critical and high severity bugs are included in the `/screenshots` folder.
+## 📸 Evidence / Screenshots
+
+All bug evidence screenshots are located here:
+ManualTesting/Screenshots/
+Each bug in BugReport.md includes direct image references.
 
 ---
 
