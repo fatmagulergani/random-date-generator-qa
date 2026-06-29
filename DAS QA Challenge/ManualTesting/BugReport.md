@@ -107,7 +107,7 @@ Different format options produce identical output.
 
 ### Evidence:
 ![BUG-006-1](./Screenshots/BUG-006-date-format(1).png)
-![BUG-006-2](./Screenshots/BUG-006-date-format(2).png)
+![BUG-006-2](./Screenshots/BUG-006_date_format(2).png)
 
 ---
 
